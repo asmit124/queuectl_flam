@@ -5,37 +5,53 @@ It lets you enqueue background jobs, process them using a worker, and automatica
 Permanently failed jobs are stored in a **Dead Letter Queue (DLQ)**.
 
 
-# How to Run the Project
+## How to Run the Project
 
-#Install Node.js
+###  Install Node.js
 Make sure Node.js is installed:
+```powershell
 node -v
+```
 
-
-#Open the project folder
+###  Open the Project Folder
+```powershell
 cd ~/Desktop/queuectl
+```
 
-#Enqueue a new job
+###  Enqueue a New Job
+```powershell
 node .\queuectl.js enqueue-file .\job.json
+```
 
-#Start the worker
+###  Start the Worker
+```powershell
 node .\worker_process.js
-The worker will pick up and process jobs automatically.
+```
+The worker will automatically pick up and process jobs.
 
-#Check job status
-node .\queuectl.js list --state complet
+### Check Job Status
+```powershell
+node .\queuectl.js list --state completed
+```
 
-#View failed or DLQ jobs
+###  View Failed or DLQ Jobs
+```powershell
 node .\queuectl.js dlq list
+```
 
-#Project Structure
-queuectl.js          → CLI commands
-worker_process.js    → Worker runner
-lib/storage.js       → Persistent storage
-job.json             → Example job
-fail.json            → Example failed job
-db.json              → Auto-created database
-architecture.md      → System overview
+---
+
+### Project Structure
+```
+queuectl.js        → CLI commands
+worker_process.js  → Worker runner
+lib/storage.js     → Persistent storage
+job.json           → Example job
+fail.json          → Example failed job
+db.json            → Auto-created database
+architecture.md    → System overview
+```
+
 
 Working CLI demo link:
 https://drive.google.com/file/d/1rOeidk0-g992-1F9cZC9vkupaLFbl6sE/view?usp=drive_link
